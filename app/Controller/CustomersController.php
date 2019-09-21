@@ -55,6 +55,9 @@ class CustomersController extends AppController {
 			$this->set('customers', $this->Paginator->paginate());
 			$this->set('is_search', false);
 		}
+		if ($this->request->is('button')){
+			echo 'AAAAAAAAAAAA';
+		}
 	}
 
 /**
@@ -88,6 +91,15 @@ class CustomersController extends AppController {
 				$this->Flash->error(__('The customer could not be saved. Please, try again.'));
 			}
 		}
+	}
+
+/**
+ * reset method
+ *
+ * @return void
+ */
+	public function reset() {
+		$this->redirect(array('action' => 'index'));
 	}
 
 /**

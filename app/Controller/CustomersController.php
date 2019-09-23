@@ -37,7 +37,10 @@ class CustomersController extends AppController {
 						'contain' => ['Writer.Name', 'Writer.slug'],
 						'order' => ['Customer.customerName' => 'desc'],
 						'conditions' => [
-							'customerName like' => '%'.$key.'%'
+							'OR' => [
+								'customerName like' => '%'.$key.'%',
+								'customerName like' => '%'.$key.'%'
+							]
 						]
 					]
 				);
